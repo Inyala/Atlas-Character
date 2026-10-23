@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Exploreur Unicode : recherche de caractères, codes Unicode, hexadécimal, décimal et binaire.">
+  <title>Unicode Atlas · Explorateur de caractères</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Unicode Atlas, accueil">
+      <span class="brand-mark">U+</span>
+      <span><strong>Unicode Atlas</strong><small>Explorateur de caractères</small></span>
+    </a>
+    <nav class="top-actions" aria-label="Navigation principale">
+      <a href="#explorer">Explorer</a>
+      <a href="#downloads">Téléchargements</a>
+      <a href="#about">À propos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> RÉFÉRENCE UNICODE</span>
+        <h1>Chaque caractère a<br><span>son propre code.</span></h1>
+        <p>Recherche et explore les points de code Unicode avec leurs représentations hexadécimale, décimale et binaire. Sans demander à ton navigateur de manger plus d’un million de lignes au petit-déjeuner.</p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#explorer">Lancer l’explorateur <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#downloads">Obtenir la base complète</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="glyph-card"><span>あ</span><small>U+3042</small></div>
+        <div class="float-glyph g1">Ω</div><div class="float-glyph g2">Ж</div>
+        <div class="float-glyph g3">⌘</div><div class="float-glyph g4">字</div>
+        <div class="hero-caption">1 114 111 points de code possibles</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Statistiques de la base">
+      <div class="stat"><span class="stat-icon">⌗</span><div><strong id="total-count">1 114 111</strong><small>Points de code couverts</small></div></div>
+      <div class="stat"><span class="stat-icon">⌕</span><div><strong id="preview-count">Chargement…</strong><small>Entrées dans l’aperçu local</small></div></div>
+      <div class="stat"><span class="stat-icon">⇩</span><div><strong>4 formats</strong><small>JSON · XML · SQLite · CSV</small></div></div>
+    </section>
+
+    <section class="section explorer-section" id="explorer">
+      <div class="section-heading">
+        <div><span class="eyebrow">BIBLIOTHÈQUE</span><h2>Explorer les caractères</h2></div>
+        <span class="limited-pill"><span></span> Aperçu léger</span>
+      </div>
+      <p class="section-intro">Cette page utilise un petit échantillon réparti sur l’ensemble de la plage Unicode. La base complète est proposée séparément au téléchargement. La recherche dans cette page porte uniquement sur l’échantillon chargé.</p>
+
+      <div class="search-panel">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="Rechercher un caractère, U+1F600, 128512, hexadécimal…" autocomplete="off">
+          <kbd>↵</kbd>
+        </label>
+        <div class="filters">
+          <label>Afficher
+            <select id="page-size">
+              <option value="24">24 par page</option>
+              <option value="48" selected>48 par page</option>
+              <option value="96">96 par page</option>
+            </select>
+          </label>
+          <label>Tri
+            <select id="sort-by">
+              <option value="decimal-asc">Code croissant</option>
+              <option value="decimal-desc">Code décroissant</option>
+              <option value="character">Caractère</option>
+            </select>
+          </label>
+          <button class="button small secondary" id="clear-search" type="button">Effacer</button>
+        </div>
+      </div>
+
+      <div class="result-line">
+        <span id="result-summary" aria-live="polite">Chargement des caractères…</span>
+        <span class="keyboard-hint">Clique sur une carte pour copier le code</span>
+      </div>
+      <div id="character-grid" class="character-grid" aria-live="polite">
+        <div class="loading"><span class="spinner"></span> Chargement de l’aperçu…</div>
+      </div>
+      <div class="pagination">
+        <button class="button secondary small" id="prev-page" type="button" disabled>← Précédent</button>
+        <span id="page-label">Page 1</span>
+        <button class="button secondary small" id="next-page" type="button" disabled>Suivant →</button>
+      </div>
+      <p class="notice"><strong>Limite volontaire :</strong> l’explorateur web ne charge pas la base complète. Il affiche uniquement les résultats de l’échantillon fourni, avec une limite de sécurité de 15 % du total annoncé. Cela évite de figer les téléphones et les ordinateurs moins puissants.</p>
+    </section>
+
+    <section class="section download-section" id="downloads">
+      <div class="section-heading">
+        <div><span class="eyebrow">DONNÉES COMPLÈTES</span><h2>Choisir son format</h2></div>
+        <span class="download-symbol">⇩</span>
+      </div>
+      <p class="section-intro">Télécharge la base complète ou copie son URL pour l’utiliser dans un autre projet. Les liens sont configurables dans <code>js/app.js</code> : remplace les URL d’exemple par les liens de tes fichiers publiés sur GitHub Releases ou sur un hébergement adapté.</p>
+      <div class="download-grid">
+        <article class="download-card">
+          <div class="file-icon json">{" }</div><div class="file-meta"><h3>JSON</h3><p>Applications web, JavaScript et données structurées.</p><small>character_db.json</small></div>
+          <div class="card-actions"><a class="button primary download-link" data-format="json" href="#" target="_blank" rel="noopener">Télécharger</a><button class="copy-link" data-copy-format="json" type="button">Copier le lien</button></div>
+        </article>
+        <article class="download-card">
+          <div class="file-icon xml">&lt;/&gt;</div><div class="file-meta"><h3>XML</h3><p>Format balisé pour les outils compatibles XML.</p><small>character_db.xml</small></div>
+          <div class="card-actions"><a class="button primary download-link" data-format="xml" href="#" target="_blank" rel="noopener">Télécharger</a><button class="copy-link" data-copy-format="xml" type="button">Copier le lien</button></div>
+        </article>
+        <article class="download-card">
+          <div class="file-icon db">▤</div><div class="file-meta"><h3>SQLite</h3><p>Base interrogeable localement avec SQL.</p><small>character_db.sqlite</small></div>
+          <div class="card-actions"><a class="button primary download-link" data-format="sqlite" href="#" target="_blank" rel="noopener">Télécharger</a><button class="copy-link" data-copy-format="sqlite" type="button">Copier le lien</button></div>
+        </article>
+        <article class="download-card">
+          <div class="file-icon csv">▦</div><div class="file-meta"><h3>CSV UTF-8</h3><p>Tableur compatible avec Excel et LibreOffice.</p><small>character_db.csv</small></div>
+          <div class="card-actions"><a class="button primary download-link" data-format="csv" href="#" target="_blank" rel="noopener">Télécharger</a><button class="copy-link" data-copy-format="csv" type="button">Copier le lien</button></div>
+        </article>
+        <article class="download-card featured">
+          <div class="file-icon zip">ZIP</div><div class="file-meta"><h3>Archive complète</h3><p>Les quatre formats réunis dans une archive.</p><small>character_db.zip</small></div>
+          <div class="card-actions"><a class="button primary download-link" data-format="zip" href="#" target="_blank" rel="noopener">Télécharger</a><button class="copy-link" data-copy-format="zip" type="button">Copier le lien</button></div>
+        </article>
+      </div>
+      <div class="hosting-note"><span class="note-icon">i</span><div><strong>Avant la mise en ligne</strong><p>GitHub bloque les fichiers individuels de plus de 100 Mo dans un dépôt Git classique. Publie les gros fichiers via <b>GitHub Releases</b>, puis colle les URL de téléchargement dans <code>js/app.js</code>. Le dépôt du site restera léger.</p></div></div>
+      <div class="link-status" id="link-status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-panel">
+        <div><span class="eyebrow">À PROPOS DU PROJET</span><h2>Un atlas, pas un aspirateur à RAM.</h2></div>
+        <p>Unicode Atlas sépare l’interface, les styles, le code JavaScript et l’échantillon de données. Il est conçu pour GitHub Pages et fonctionne sans serveur applicatif. Pour une recherche instantanée dans la base entière, il faudra un service de recherche ou une base découpée en fichiers paginés : une page statique ne peut pas interroger un fichier SQLite distant toute seule.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand compact" href="./"><span class="brand-mark">U+</span><span><strong>Unicode Atlas</strong><small>Un caractère à la fois.</small></span></a>
+    <span>Site statique · HTML, CSS, JavaScript · GitHub Pages</span>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
