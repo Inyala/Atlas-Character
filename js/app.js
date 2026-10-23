@@ -4,11 +4,11 @@
   // Remplace ces URL par les liens de téléchargement publiés dans GitHub Releases.
   // Évite de placer les fichiers JSON/XML de plus de 100 Mo dans le dépôt Git classique.
   const DATA_URLS = {
-    json: "https://github.com/TON-COMPTE/TON-DEPOT/releases/latest/download/character_db.json",
-    xml: "https://github.com/TON-COMPTE/TON-DEPOT/releases/latest/download/character_db.xml",
-    sqlite: "https://github.com/TON-COMPTE/TON-DEPOT/releases/latest/download/character_db.sqlite",
-    csv: "https://github.com/TON-COMPTE/TON-DEPOT/releases/latest/download/character_db.csv",
-    zip: "https://github.com/TON-COMPTE/TON-DEPOT/releases/latest/download/character_db.zip"
+    json: "https://github.com/Inyala/Atlas-Character/releases/download/v1_0/character_db.json",
+    xml: "https://github.com/Inyala/Atlas-Character/releases/download/v1_0/character_db.xml",
+    sqlite: "https://github.com/Inyala/Atlas-Character/releases/download/v1_0/character_db.sqlite",
+    csv: "https://github.com/Inyala/Atlas-Character/releases/download/v1_0/character_db.csv",
+    zip: "https://github.com/Inyala/Atlas-Character/releases/download/v1_0/character_db.zip"
   };
 
   const TOTAL_UNICODE = 1114111;
